@@ -129,20 +129,7 @@ function initLovePopup() {
         yesBtn.textContent = '❤️ I LOVE YOU FIZA! ❤️';
         noBtn.style.display = 'none';
 
-        // Heart explosion
-        createHeartExplosion();
-
-        // Play music immediately on this user click to bypass autoplay restrictions
-        const music = document.getElementById('bg-music');
-        const toggle = document.getElementById('music-toggle');
-        if (music) {
-            music.play().then(() => {
-                if (toggle) {
-                    toggle.classList.add('playing');
-                    toggle.querySelector('.music-label').textContent = 'Playing';
-                }
-            }).catch(e => console.log('Autoplay blocked', e));
-        }
+        // User requested no auto-play: music will now only play when the toggle button is clicked manually.
 
         // Transition to main site
         setTimeout(() => {
