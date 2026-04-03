@@ -51,15 +51,18 @@ function showMainContent() {
         mainContent.style.animation = 'fadeInUp 1s ease-out';
         initTypewriter();
         
-        // Try auto-play music
-        setTimeout(() => {
-            const music = document.getElementById('bg-music');
-            if (music) {
-                music.play().catch(() => {});
-                const toggle = document.getElementById('music-toggle');
-                if (toggle) toggle.classList.add('playing');
-            }
-        }, 1500);
+        // Start background music (fallback if not played yet)
+        const music = document.getElementById('bg-music');
+        const toggle = document.getElementById('music-toggle');
+        if (music && music.paused) {
+            // This might still be blocked by browser without recent interaction, but it's a fallback
+            music.play().then(() => {
+                if (toggle) {
+                    toggle.classList.add('playing');
+                    toggle.querySelector('.music-label').textContent = 'Playing';
+                }
+            }).catch(() => {});
+        }
 
         // Launch fireworks if it's birthday (April 4)
         const now = new Date();
@@ -128,6 +131,18 @@ function initLovePopup() {
 
         // Heart explosion
         createHeartExplosion();
+
+        // Play music immediately on this user click to bypass autoplay restrictions
+        const music = document.getElementById('bg-music');
+        const toggle = document.getElementById('music-toggle');
+        if (music) {
+            music.play().then(() => {
+                if (toggle) {
+                    toggle.classList.add('playing');
+                    toggle.querySelector('.music-label').textContent = 'Playing';
+                }
+            }).catch(e => console.log('Autoplay blocked', e));
+        }
 
         // Transition to main site
         setTimeout(() => {
@@ -745,10 +760,8 @@ function initMusic() {
     const music = document.getElementById('bg-music');
     if (!toggle || !music) return;
 
-    let isPlaying = false;
-
     toggle.addEventListener('click', () => {
-        if (isPlaying) {
+        if (!music.paused) {
             music.pause();
             toggle.classList.remove('playing');
             toggle.querySelector('.music-label').textContent = 'Music';
@@ -758,7 +771,14 @@ function initMusic() {
                 toggle.querySelector('.music-label').textContent = 'Playing';
             }).catch(() => {});
         }
-        isPlaying = !isPlaying;
+    });
+
+    // Handle end of music to loop properly
+    music.addEventListener('ended', () => {
+        music.play().catch(() => {
+            toggle.classList.remove('playing');
+            toggle.querySelector('.music-label').textContent = 'Music';
+        });
     });
 }
 
