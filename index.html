@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love ❤️</title>
+    <meta name="description" content="A special birthday surprise made with love">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============================================ -->
+    <!-- ENVELOPE INTRO - Opens to reveal the site    -->
+    <!-- ============================================ -->
+    <div id="envelope-intro">
+        <div class="envelope-container">
+            <div class="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="letter">
+                        <p class="letter-text">A Special Surprise Awaits You...</p>
+                        <span class="tap-hint">💌 Tap to Open</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sparkles" id="intro-sparkles"></div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- "DO YOU LOVE ME?" FUN POPUP                   -->
+    <!-- ============================================ -->
+    <div id="love-popup" class="hidden">
+        <div class="love-popup-overlay"></div>
+        <div class="love-popup-card">
+            <div class="love-popup-emoji">💘</div>
+            <h2 class="love-popup-title">Fiza, Do You Love Me?</h2>
+            <p class="love-popup-subtitle">Sacchi batao... 😏</p>
+            <div class="love-popup-buttons">
+                <button id="love-yes-btn" class="love-btn love-btn-yes">Yes, I Love You! ❤️</button>
+                <button id="love-no-btn" class="love-btn love-btn-no">No 😢</button>
+            </div>
+            <p id="love-popup-message" class="love-popup-message"></p>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MAIN CONTENT (Hidden until love popup done)  -->
+    <!-- ============================================ -->
+    <div id="main-content" class="hidden">
+
+        <!-- Particle Canvas -->
+        <canvas id="particles-canvas"></canvas>
+
+        <!-- Fireworks Canvas -->
+        <canvas id="fireworks-canvas"></canvas>
+
+        <!-- Floating Music Toggle -->
+        <button id="music-toggle" class="music-toggle" title="Toggle Music">
+            <span class="music-icon">🎵</span>
+            <span class="music-label">Music</span>
+        </button>
+        <audio id="bg-music" loop preload="auto">
+            <source src="https://cdn.pixabay.com/audio/2024/11/29/audio_a0fbe03092.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="section">
+            <div class="hero-bg-shapes">
+                <div class="floating-heart h1">❤️</div>
+                <div class="floating-heart h2">💕</div>
+                <div class="floating-heart h3">💖</div>
+                <div class="floating-heart h4">✨</div>
+                <div class="floating-heart h5">🌹</div>
+                <div class="floating-heart h6">💗</div>
+                <div class="floating-heart h7">❤️</div>
+                <div class="floating-heart h8">💕</div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">🎂 Happy Birthday Fiza! 🎂</div>
+                <h1 class="hero-title" id="typewriter"></h1>
+                <div class="hero-subtitle-wrapper">
+                    <p class="hero-subtitle">Aaj ka din sirf tumhara hai, meri jaan. Tumhare saath ka har lamha meri zindagi ki sabse khoobsurat naimat hai.</p>
+                </div>
+                <div class="hero-cta">
+                    <a href="#timeline" class="btn-glow">Explore Our Journey ✨</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="mouse-wheel"></div>
+                </div>
+                <p>Scroll Down</p>
+            </div>
+        </section>
+
+        <!-- TIMELINE / OUR STORY SECTION -->
+        <section id="timeline" class="section">
+            <div class="section-header">
+                <span class="section-badge">💑 Our Story</span>
+                <h2 class="section-title">Our Beautiful Journey</h2>
+                <p class="section-subtitle">Every moment with you is a masterpiece painted with love</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item left reveal-on-scroll">
+                    <div class="timeline-marker"><span>💍</span></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">The Beginning</span>
+                        <h3>When We First Met</h3>
+                        <p>The day my world changed forever. One look at you and I knew you were the one I had been waiting for my entire life.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal-on-scroll">
+                    <div class="timeline-marker"><span>❤️</span></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">Falling in Love</span>
+                        <h3>Our Hearts Connected</h3>
+                        <p>Every conversation, every laugh, every shared silence — they all brought us closer. I fell deeper in love with you each day.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left reveal-on-scroll">
+                    <div class="timeline-marker"><span>💒</span></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">Our Wedding</span>
+                        <h3>The Best Day of My Life</h3>
+                        <p>The day you became mine forever. Standing beside you at the altar, I made a promise to love you with every breath I take.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal-on-scroll">
+                    <div class="timeline-marker"><span>🌟</span></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">Every Single Day</span>
+                        <h3>Living Our Dream</h3>
+                        <p>Every morning I wake up next to you, I thank God for the most beautiful gift — you. Our journey has only just begun.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHOTO GALLERY SECTION -->
+        <section id="gallery" class="section">
+            <div class="section-header">
+                <span class="section-badge">📸 Memories</span>
+                <h2 class="section-title">Our Beautiful Moments</h2>
+                <p class="section-subtitle">Each photo tells a story of our love</p>
+            </div>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="photos">Photos</button>
+                <button class="filter-btn" data-filter="videos">Videos</button>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Photos loaded dynamically from Cloudinary -->
+                <div class="gallery-placeholder glass-card">
+                    <div class="placeholder-icon">📷</div>
+                    <p>Upload your beautiful memories through the admin panel</p>
+                    <p class="placeholder-hint">Go to <strong>/admin.html</strong> to get started</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX -->
+        <div id="lightbox" class="lightbox">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</button>
+            <div class="lightbox-content">
+                <img id="lightbox-img" src="" alt="Gallery photo">
+                <video id="lightbox-video" controls style="display:none;"></video>
+            </div>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+
+        <!-- LOVE LETTER SECTION -->
+        <section id="love-letter" class="section">
+            <div class="love-letter-bg">
+                <div class="petal p1">🌸</div>
+                <div class="petal p2">🌺</div>
+                <div class="petal p3">🌸</div>
+                <div class="petal p4">🌺</div>
+                <div class="petal p5">🌸</div>
+                <div class="petal p6">🌹</div>
+            </div>
+            <div class="section-header">
+                <span class="section-badge">💌 Fiza Ke Liye</span>
+                <h2 class="section-title">Dil Ki Baat</h2>
+            </div>
+            <div class="letter-container glass-card reveal-on-scroll">
+                <div class="letter-content">
+                    <p class="letter-greeting">Meri Pyaari Fiza Basit,</p>
+                    <p class="letter-body">
+                        Aaj tumhare birthday pe main tumhe yeh batana chahta hoon ke tum 
+                        meri zindagi ki sabse khoobsurat cheez ho. Jab se tum meri life 
+                        mein aayi ho, sab kuch badal gaya hai. Tum meri dhoop ho, meri 
+                        barish ho, meri khushi ho aur mera sukoon ho. 💖
+                    </p>
+                    <p class="letter-body">
+                        Tumhari muskurahat dekh ke mera sara ghum door ho jaata hai. 
+                        Tumhari hansi sun ke lagta hai ke duniya mein koi melody isse 
+                        zyada pyaari nahi. Tum mere liye sirf biwi nahi, tum meri 
+                        sab se achi dost ho, meri partner ho, meri duniya ho. ✨
+                    </p>
+                    <p class="letter-body">
+                        Har roz tum mere saath hoti ho toh lagta hai ke Allah ne 
+                        mujhe duniya ki sabse badi naimat de di hai. Main tumhara 
+                        shukar guzar hoon ke tum meri zindagi mein ho, ke tum ne 
+                        mujhe itna pyaar diya, itna saath diya. 🫣
+                    </p>
+                    <p class="letter-body">
+                        Happy Birthday meri jaan! Yeh saal tumhare liye sabse 
+                        khoobsurat ho. Main waada karta hoon ke tumhara haath 
+                        kabhi nahi chhodunga, tumhare saath har mushkil mein 
+                        khadda rahunga, aur tumse har din pehle se zyada 
+                        mohabbat karunga. 🌹
+                    </p>
+                    <p class="letter-body">
+                        Tum sirf meri biwi nahi — tum meri rooh ho, meri dhadkan 
+                        ho, meri puri kaynaat ho. Main Allah ka shuker ada karta 
+                        hoon ke usne tumhe mere liye banaya. I love you more than 
+                        words can ever say, Fiza! ❤️
+                    </p>
+                    <p class="letter-signature">Hamesha Tumhara,<br><span>Tumhara Basit ❤️</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BIRTHDAY COUNTDOWN SECTION -->
+        <section id="countdown" class="section">
+            <div class="countdown-container">
+                <div class="countdown-sparkle-bg" id="countdown-sparkles"></div>
+                <div class="section-header">
+                    <span class="section-badge">⏰ Countdown</span>
+                    <h2 class="section-title">Birthday Countdown</h2>
+                    <p class="section-subtitle">April 4th — The most special day! 🎂</p>
+                </div>
+                <div class="countdown-timer" id="countdown-timer">
+                    <div class="countdown-unit glass-card">
+                        <span class="countdown-number" id="cd-days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-unit glass-card">
+                        <span class="countdown-number" id="cd-hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-unit glass-card">
+                        <span class="countdown-number" id="cd-minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-unit glass-card">
+                        <span class="countdown-number" id="cd-seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+                <div id="birthday-live-banner" class="birthday-live-banner hidden">
+                    <h2>🎉🎂 IT'S YOUR BIRTHDAY TODAY! 🎂🎉</h2>
+                    <p>The most beautiful person in the world was born on this day!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BIRTHDAY WISHES SECTION -->
+        <section id="wishes" class="section">
+            <div class="wishes-container">
+                <div class="birthday-cake-emoji">🎂</div>
+                <h2 class="wishes-title">Happy Birthday Fiza!</h2>
+                <div class="wishes-message">
+                    <p>Wishing you a day filled with love, laughter, and all the things that make you happy.</p>
+                    <p>You deserve the world and more! 🌍✨</p>
+                </div>
+                <div class="confetti-container" id="confetti-container"></div>
+                <div class="birthday-counter">
+                    <div class="counter-item glass-card">
+                        <span class="counter-number" data-target="365">0</span>
+                        <span class="counter-label">Days Together</span>
+                    </div>
+                    <div class="counter-item glass-card">
+                        <span class="counter-number" data-target="8760">0</span>
+                        <span class="counter-label">Hours of Love</span>
+                    </div>
+                    <div class="counter-item glass-card">
+                        <span class="counter-number" data-target="999">0</span>
+                        <span class="counter-label">Beautiful Moments</span>
+                    </div>
+                    <div class="counter-item glass-card">
+                        <span class="counter-number" data-target="1000000">0</span>
+                        <span class="counter-label">Reasons I Love You</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FUN QUIZ SECTION -->
+        <section id="quiz" class="section">
+            <div class="section-header">
+                <span class="section-badge">🎮 Basit Ka Quiz</span>
+                <h2 class="section-title">Basit Ko Kitna Jaanti Ho?</h2>
+                <p class="section-subtitle">Chalo dekhte hain, birthday queen! 👑</p>
+            </div>
+            <div class="quiz-container">
+                <div class="quiz-card glass-card" id="quiz-card">
+                    <div class="quiz-question" id="quiz-question">What do I love most about you?</div>
+                    <div class="quiz-options" id="quiz-options">
+                        <button class="quiz-option" data-correct="true">Everything! 💕</button>
+                        <button class="quiz-option">Your cooking 🍳</button>
+                        <button class="quiz-option">Your jokes 😂</button>
+                        <button class="quiz-option">Your dance moves 💃</button>
+                    </div>
+                    <div class="quiz-result hidden" id="quiz-result"></div>
+                    <button class="quiz-next hidden" id="quiz-next">Next Question ➡️</button>
+                </div>
+                <div class="quiz-progress">
+                    <span id="quiz-score">Score: 0</span>
+                    <span id="quiz-count">Question 1/5</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div class="footer-hearts">
+                <span class="footer-heart fh1">❤️</span>
+                <span class="footer-heart fh2">💕</span>
+                <span class="footer-heart fh3">💖</span>
+                <span class="footer-heart fh4">❤️</span>
+                <span class="footer-heart fh5">💗</span>
+            </div>
+            <p class="footer-text">Made with ❤️ by Basit for his queen Fiza</p>
+            <p class="footer-year">© 2026 — Forever & Always</p>
+        </footer>
+    </div>
+
+    <script src="js/cloudinary.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

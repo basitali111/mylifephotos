@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel — Birthday Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen">
+        <div class="login-container">
+            <div class="login-icon">🔐</div>
+            <h1>Admin Access</h1>
+            <p>Enter the secret password to manage your birthday gallery</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="password" id="admin-password" placeholder="Enter password..." autocomplete="off" required>
+                    <button type="submit" class="btn-login">Unlock 🔓</button>
+                </div>
+                <p id="login-error" class="error-msg"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD -->
+    <div id="admin-dashboard" class="hidden">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="admin-header-left">
+                <h1>🎂 Birthday Gallery Manager</h1>
+            </div>
+            <div class="admin-header-right">
+                <a href="index.html" class="btn-view-site" target="_blank">👁️ View Website</a>
+                <button id="logout-btn" class="btn-logout">Logout</button>
+            </div>
+        </header>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <span class="stat-number" id="stat-total">0</span>
+                <span class="stat-label">Total Files</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="stat-photos">0</span>
+                <span class="stat-label">Photos</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="stat-videos">0</span>
+                <span class="stat-label">Videos</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="stat-cloud">☁️</span>
+                <span class="stat-label">Cloudinary</span>
+            </div>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <h2>📤 Upload Media</h2>
+            <p class="upload-hint">Drag & drop files or click to browse. Supports photos and videos.</p>
+            
+            <div class="upload-zone" id="upload-zone">
+                <div class="upload-zone-content">
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-text">Drop photos & videos here</p>
+                    <p class="upload-subtext">or click to browse files</p>
+                    <input type="file" id="file-input" multiple accept="image/*,video/*" class="file-input-hidden">
+                </div>
+            </div>
+
+            <!-- Upload Progress -->
+            <div id="upload-progress-container" class="hidden">
+                <div id="upload-items"></div>
+            </div>
+        </div>
+
+        <!-- Gallery Management -->
+        <div class="gallery-management">
+            <div class="gallery-management-header">
+                <h2>🖼️ Uploaded Media</h2>
+                <button id="refresh-gallery" class="btn-refresh">🔄 Refresh</button>
+            </div>
+            <div class="admin-gallery-grid" id="admin-gallery-grid">
+                <div class="loading-placeholder">Loading gallery...</div>
+            </div>
+        </div>
+
+        <!-- Cloudinary Config -->
+        <div class="config-section">
+            <h2>⚙️ Cloudinary Configuration</h2>
+            <div class="config-grid">
+                <div class="config-item">
+                    <label>Cloud Name</label>
+                    <input type="text" id="config-cloud-name" value="dnsyvxggn">
+                </div>
+                <div class="config-item">
+                    <label>Upload Preset</label>
+                    <input type="text" id="config-upload-preset" value="birthday-wife">
+                </div>
+                <div class="config-item">
+                    <label>Folder</label>
+                    <input type="text" id="config-folder" value="birthday-wife">
+                </div>
+                <div class="config-item">
+                    <label>Tag</label>
+                    <input type="text" id="config-tag" value="birthday-gallery">
+                </div>
+            </div>
+            <button id="save-config" class="btn-save-config">💾 Save Configuration</button>
+        </div>
+    </div>
+
+    <script src="js/cloudinary.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
